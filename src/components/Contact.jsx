@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaEnvelope, FaGlobe, FaPhone, FaPhoneAlt, FaUser } from "react-icons/fa";
-
+import {motion} from "framer-motion"
+import {fadeIn} from '../utilities/animationVariantes'
 
 const Contact = () => {
 
@@ -43,7 +44,12 @@ const closeModal = () => {
 
   return (
     <div className='bg-heroBg flex items-center justify-center py-28 px-8' id='contact'>
-      <div className='container mx-auto'>
+      <motion.div 
+        variants={fadeIn('up' , 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once: false, amount: 0.7}}
+      className='container mx-auto'>
         <div className='md:w-4/5 mx-auto grid grid-cols-1 md:grid-cols-2 items-center md:gap-12 gap-8 '>
         {/* {left side} */}
         <div className='space-y-8'>
@@ -122,7 +128,7 @@ placeholder='Write Your Massege ...' className='w-full p-4 rounded-md focus:outl
           </div>
 
         </div>
-      </div>
+      </motion.div>
          {
           showModle && (
             <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-90'>

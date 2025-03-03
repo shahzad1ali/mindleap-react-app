@@ -1,6 +1,8 @@
 import React from 'react'
 import review1 from "../assets/review1.webp"
 import review2 from "../assets/review2.webp"
+import {motion} from "framer-motion"
+import {fadeIn} from '../utilities/animationVariantes'
 
 
 import { BsChatQuoteFill } from "react-icons/bs";
@@ -22,7 +24,12 @@ const  testimonials =[
 
 const Testimonial = () => {
   return (
-    <div id='testimonial' className='bg-[#f7f8fc] py-12'>
+    <motion.div
+      variants={fadeIn('up' , 0.2)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{once: false, amount: 0.7}}
+    id='testimonial' className='bg-[#f7f8fc] py-12'>
     <div className='container mx-auto pb-20'>
     <div className='text-center mb-12'>
           <h2 className='text-4xl font-bold font-secondary mb-3'>Hear from some of our satisfied client about how our service have positivly impacted thier lives and well-being.  </h2>
@@ -52,7 +59,7 @@ const Testimonial = () => {
          </div>
 
       </div>  
-    </div>
+    </motion.div>
   )
 }
 
